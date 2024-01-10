@@ -11,8 +11,8 @@ const { test, expect } = require('@playwright/test');
  */
 
 test.describe('Login Tests', () => {
-    let browser; // Declare a variable to hold the browser instance
-    let page; // Declare a variable to hold the page instance
+    //let browser; // Declare a variable to hold the browser instance
+    // let page; // Declare a variable to hold the page instance
 
     test.beforeAll(async () => {
         browser = await chromium.launch(); // Launch the Chromium browser
@@ -47,16 +47,16 @@ test.describe('Login Tests', () => {
     });
 
     test('Login.Put correct data', async () => {
-       //test.setTimeout(100000);
-       // await page.pause();
+        //test.setTimeout(100000);
+        // await page.pause();
         await page.fill('[placeholder="email@email.com"]', 'amandryk.qualitygeek@gmail.com');
         await page.fill('[type="password"]', 'Geek2023!!!');
-        await page.click('button[type="submit"]');  
+        await page.click('button[type="submit"]');
         await page.getByRole('heading', { name: 'Stay Up to Date' }).click();
 
-    }); 
+    });
 
-    test ('Login.Logout', async () => {
+    test('Login.Logout', async () => {
         //await page.pause();
         await page.locator('[placeholder="email@email.com"]').fill('amandryk.qualitygeek@gmail.com');
         await page.locator('[id="ember195"]').fill('Geek2023!!!');
@@ -72,7 +72,7 @@ test.describe('Login Tests', () => {
         await page.locator('[type="submit"]').click();
         await page.getByText('Login failed. Invalid "');
     });
-    test ('Login.Forgot Password', async () => {
+    test('Login.Forgot Password', async () => {
         //await page.pause();
         await page.locator('[id="ember199"]').click();
         await page.getByPlaceholder('Enter Login').click();
